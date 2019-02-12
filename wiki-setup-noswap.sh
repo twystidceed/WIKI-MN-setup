@@ -230,12 +230,10 @@ listen=1
 server=1
 daemon=1
 logintimestamps=1
-maxconnections=256
+maxconnections=10
 externalip=$publicip:$PORT
 masternode=1
 masternodeprivkey=$genkey
-addnode=45.32.139.170:13888
-addnode=109.248.200.244:13888
 EOF
 
 #Finally, starting daemon with new wiki.conf
