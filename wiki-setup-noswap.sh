@@ -17,6 +17,8 @@ NC='\033[0m' # No Color
 #WIKI TCP port
 PORT=13888
 RPC=13889
+ADDNODE1=202.39.49.57:13888
+ADDNODE2=34.80.13.219:13888
 
 #Clear keyboard input buffer
 function clear_stdin { while read -r -t 0; do read -r; done; }
@@ -238,7 +240,9 @@ EOF
 
 #Finally, starting daemon with new wiki.conf
 wikid -daemon
-delay 5
+delay 10
+wiki-cli addnode $ADDNODE1 onetry
+wiki-cli addnode $ADDNODE2 onetry
 
 #Setting auto start cron job for wikid
 cronjob="@reboot sleep 30 && wikid -daemon"
